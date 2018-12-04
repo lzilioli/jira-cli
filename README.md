@@ -26,5 +26,9 @@ touch `~/.jira.json`
 ## Usage
 
 ```
-jira find PROJ-XXXX
+$ jira find PROJ-XXXX
+Summary : Issue Summary
+Status  : TODO
+Assignee: Unassigned
+URL     : https://my-jira-host.net/browse/PROJ-XXXX
 ```
