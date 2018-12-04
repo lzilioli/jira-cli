@@ -1,6 +1,8 @@
 
 ## Installation
 
+**requires node version 10**
+
 ```bash
 git clone git@bitbucket.org:lzilioli/jira-cli.git
 cd jira-cli
