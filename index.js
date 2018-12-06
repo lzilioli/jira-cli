@@ -15,7 +15,7 @@ program
 	.then(function(issue) {
 		logField('Summary  : ', colors.blue(issue.fields.summary));
 		logField('Status   : ', colorStatus(issue.fields.status.name));
-		logField('Assignee : ', colors.grey(issue.fields.assignee.displayName));
+		logField('Assignee : ', colors.grey(issue.fields.assignee ? issue.fields.assignee.displayName : 'Unassigned'));
 		logField('URL      : ', colors.grey(getIssueUrl(issueNumber)));
 	})
 	.catch(function(err) {
