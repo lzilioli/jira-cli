@@ -2,12 +2,12 @@
   "name": "jira-cli",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "jira": "./index.js"
+    "jira": "./bin.js"
   },
   "author": "Luke Zilioli <elzee08@gmail.com>",
   "dependencies": {

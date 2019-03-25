@@ -23,5 +23,5 @@ module.exports = function getJiraApi(){
 	const getIssueUrl = (issue)=>{
 		return `https://${jiraAuth.host}/browse/${issue}`
 	};
-	return {jira,getIssueUrl};
+	return {jira, getIssueUrl};
 };
