@@ -31,4 +31,17 @@ Summary : Issue Summary
 Status  : TODO
 Assignee: Unassigned
 URL     : https://my-jira-host.net/browse/PROJ-XXXX
+# see full ticket details
+$ DEBUG=jira-cli jira find PROJ-XXXX
+```
+
+## Via NPM
+
+```typescript
+import * as JiraCli from 'jira-cli';
+// docs for jira-client here: https://jira-node.github.io/class/src/jira.js~JiraApi.html
+// docs for Jira REST API here: https://developer.atlassian.com/cloud/jira/platform/rest/v3/
+export const { jira, getIssueUrl } = JiraCli();
+const ticket = await jira.findIssue('PROJ-XXXX');
+const ticketURL = getIssueUrl('PROJ-XXXX');
 ```

@@ -2,6 +2,7 @@
 const program = require('commander');
 const pkg = require('./package.json');
 const colors = require('colors');
+const debug = require('debug')('jira-cli');
 
 // JIRA API DOCS => https://jira-node.github.io
 const {jira, getIssueUrl} = require('./get-jira')();
@@ -13,8 +14,9 @@ program
 	// TODO make prefix optional
 	jira.findIssue(issueNumber)
 	.then(function(issue) {
+		debug(issue);
 		logField('Summary  : ', colors.blue(issue.fields.summary));
-		logField('Status   : ', colorStatus(issue.fields.status.name));
+		logField('Status   : ', colorStatus(issue.fields.status.name, issue.fields.status.statusCategory.name));
 		logField('Assignee : ', colors.grey(issue.fields.assignee ? issue.fields.assignee.displayName : 'Unassigned'));
 		logField('URL      : ', colors.grey(getIssueUrl(issueNumber)));
 	})
@@ -35,17 +37,16 @@ if (!process.argv.slice(2).length) {
 
 function getStatusColor(status){
 	const statusMap = {
-		'Pending Deployment': 'green',
+		'To Do': 'grey',
+		'In Progress': 'blue',
 		'Done': 'green',
-		'Open': 'grey',
-		'Priority Pending': 'grey'
 	};
-	const color = statusMap[status] || 'blue';
+	const color = statusMap[status] || 'grey';
 	return color;
 }
 
-function colorStatus(status){
-	return colors[getStatusColor(status)](status);
+function colorStatus(status, statusForColor){
+	return colors[getStatusColor(statusForColor)](status);
 }
 
 function logField(title, data){

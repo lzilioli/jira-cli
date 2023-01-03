@@ -13,6 +13,7 @@
   "dependencies": {
     "colors": "^1.3.2",
     "commander": "^2.19.0",
+    "debug": "^4.3.4",
     "jira-client": "^6.4.1",
     "request": "^2.88.0"
   }
