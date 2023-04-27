@@ -2,26 +2,31 @@ const JiraApi = require('jira-client');
 const path = require('path');
 
 module.exports = function getJiraApi(){
-	const jiraAuth = require(path.join(process.env.HOME, '.jira.json'));
-	if(!jiraAuth.username) {
-		throw new Error('~/.jira.json must contain `username` property');
+	const host = process.env.JIRA_HOST;
+	if(!host) {
+		throw new Error('process.env.JIRA_HOST not set!');
 	}
-	if(!jiraAuth.password) {
-		throw new Error('~/.jira.json must contain `password` property');
+	const username = process.env.JIRA_USERNAME;
+	if(!username) {
+		throw new Error('process.env.JIRA_USERNAME not set!');
 	}
-	if(!jiraAuth.host) {
-		throw new Error('~/.jira.json must contain `host` property');
+	const password = process.env.JIRA_TOKEN;
+	if(!password) {
+		throw new Error('process.env.JIRA_TOKEN not set!');
+	}
+	if (password.startsWith('op://')) {
+		throw new Error('Did you preface the command with `op run --`?');
 	}
 	const jira = new JiraApi({
 		protocol: 'https',
 		apiVersion: '2',
 		strictSSL: true,
-		host: jiraAuth.host,
-		username: jiraAuth.username,
-		password: jiraAuth.password
+		host: host,
+		username: username,
+		password: password,
 	});
 	const getIssueUrl = (issue)=>{
-		return `https://${jiraAuth.host}/browse/${issue}`
+		return `https://${host}/browse/${issue}`
 	};
 	return {jira, getIssueUrl};
 };

@@ -11,17 +11,15 @@ npm link .
 
 ## Setup
 
-```bash
-touch `~/.jira.json`
+```
+export JIRA_HOST="my-jira-host.net"
+export JIRA_USERNAME="<my jira email>"
+export JIRA_TOKEN="<my jira token>"
 ```
 
-```json
-{
-  "host": "my-jira-host.net",
-  "username": "<jira username>",
-  "password": "<jira password>"
-}
-```
+- Replace `<my jira email>` with the email you use to log into the jira instance at `JIRA_HOST`.
+- Replace `<my jira token>` NOT with you password, but  with an API token you generate for yourself
+[here, in jira settings](https://id.atlassian.com/manage-profile/security/api-tokens)
 
 ## Usage
 
