@@ -10,9 +10,9 @@ module.exports = function getJiraApi(){
 	if(!username) {
 		throw new Error('process.env.JIRA_USERNAME not set!');
 	}
-	const password = process.env.JIRA_TOKEN;
+	const password = process.env.JIRA_TOKEN || process.env.JIRA_AUTH;
 	if(!password) {
-		throw new Error('process.env.JIRA_TOKEN not set!');
+		throw new Error('process.env.JIRA_TOKEN and process.env.JIRA_AUTH not set!');
 	}
 	if (password.startsWith('op://')) {
 		throw new Error('Did you preface the command with `op run --`?');

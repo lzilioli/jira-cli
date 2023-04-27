@@ -15,6 +15,7 @@ npm link .
 export JIRA_HOST="my-jira-host.net"
 export JIRA_USERNAME="<my jira email>"
 export JIRA_TOKEN="<my jira token>"
+# if JIRA_TOKEN not set, will fall back to JIRA_AUTH instead
 ```
 
 - Replace `<my jira email>` with the email you use to log into the jira instance at `JIRA_HOST`.
