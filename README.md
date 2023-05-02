@@ -1,12 +1,30 @@
 
-## Installation
-
-**requires node version 10**
+## Development
 
 ```bash
-git clone git@bitbucket.org:lzilioli/jira-cli.git
+git clone git@github.com:lzilioli/jira-cli.git
 cd jira-cli
 npm link .
+```
+
+## Installation
+
+In `~/.npmrc`:
+
+```
+@lzilioli:registry=https://npm.pkg.github.com/
+```
+
+Then,
+
+```
+npm install -g @lzilioli/jira-cli
+```
+
+-or- within a project:
+
+```
+npm install --save @lzilioli/jira-cli
 ```
 
 ## Setup
@@ -34,7 +52,7 @@ URL     : https://my-jira-host.net/browse/PROJ-XXXX
 $ DEBUG=jira-cli jira find PROJ-XXXX
 ```
 
-## Via NPM
+## Via import/require
 
 ```typescript
 import * as JiraCli from 'jira-cli';
