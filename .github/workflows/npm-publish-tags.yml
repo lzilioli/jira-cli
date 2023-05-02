@@ -27,11 +27,6 @@ jobs:
                   # Defaults to the user or organization that owns the workflow file
                   scope: '@lzilioli'
 
-
-            # build the package
-            - name: Build @@lzilioli/prism-cli
-              run: npm run build
-
             # Publish the package to Github
             - name: Publish @@lzilioli/jira-cli to GitHub NPM
               run: npm publish
