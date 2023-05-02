@@ -23,6 +23,12 @@ npm install -g @lzilioli/jira-cli
 
 -or- within a project:
 
+in `<project root>.npmrc`
+
+```
+@lzilioli:registry=https://npm.pkg.github.com/
+```
+
 ```
 npm install --save @lzilioli/jira-cli
 ```
